@@ -13,7 +13,7 @@ int main( int argc, char * argv[] )
 	}
 
 	int i = 1;
-	double loan_amount, yearly_interest_rate, monthly_payment;
+	double balance, yearlyinterest, monthpay;
 
 	double arguments [3];
 
@@ -40,13 +40,18 @@ int main( int argc, char * argv[] )
 		}
 	}
 
-	loan_amount = arguments[0];
-	yearly_interest_rate = arguments[1];
-	monthly_payment = arguments[2];
-	cout << loan_amount << " " << yearly_interest_rate << " " << monthly_payment << endl;
+	balance = arguments[0];
+	yearlyinterest = arguments[1];
+	monthpay = arguments[2];
 	//iitalize variables
 	int month = 0;
-	int balance = loan_amount;
+	double interest = 0;
+	double principal = 0;
+	double totalinterest = 0;
+	double rate = yearlyinterest/12;
+	double interestrate = rate/100;
+
+	
 	
 	
 	//row lengths
@@ -58,12 +63,18 @@ int main( int argc, char * argv[] )
 	int col6 = 10;
 	//total row length
 	int len = 62;
-
+	cout.setf(ios :: fixed);
+	cout.setf(ios :: showpoint);
+	cout.precision(2);
 
 	//Formating columns
 	cout << string(len, '*') << "\n";
-	cout << "        Amortization Table"  << endl;
+
+	cout << left << setw(22) << ' '
+		 <<"Amortization Table" << endl;
+
 	cout << string(len, '*') << "\n";
+	//Header
 	cout << left 
 		 << setw(col1) << "Month" 
 		 << setw(col2) << "Balance" 
@@ -79,9 +90,47 @@ int main( int argc, char * argv[] )
 		 << setw(col4) << "N/A"  
 		 << setw(col5) << "N/A"  
 		 << setw(col6) << "N/A"  << endl;
+		 month += 1;
 	//the rest of the rows
-	//while (Balance > 0;)
+	while (balance > 0)
+	{
 
-	cout << string(len, '*') << "\n";
+		interest = interestrate * balance;
+		principal = monthpay - interest;
+		
+		if (balance >= principal)
+		{
+		balance = balance - principal;
+		cout << left
+		 << setw(col1) << month
+		 << setw(col2) << balance 
+		 << setw(col3) << monthpay 
+		 << setw(col4) << rate 
+		 << setw(col5) << interest 
+		 << setw(col6) << principal  << endl;
+		}
+		//catch balance < principal
+		else
+		{
+		principal = balance;
+		balance = principal - principal;
+		cout << left
+		 << setw(col1) << month
+		 << setw(col2) << balance 
+		 << setw(col3) << monthpay 
+		 << setw(col4) << rate 
+		 << setw(col5) << interest 
+		 << setw(col6) << principal  << endl;
+		}
+		//count amount of months
+		totalinterest += interest;
+		month += 1;
+
+	}
+
+	cout << string(len, '*') << "\n\n";
+	cout << "It takes " << month << " months to pay off the loan." << endl;
+	cout << "Total interest paid is: $" << totalinterest << endl;
+		 
 	return 0;
 }
