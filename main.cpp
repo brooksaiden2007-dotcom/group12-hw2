@@ -40,7 +40,7 @@ int main( int argc, char * argv[] )
 				else
 					cout << "(Invalid payment): " << argv[i-2] << " " << argv[i-1] << " " << argv[i] << endl;
 
-				return -2;
+				return 0;
 			}
 			i++;
 		}
