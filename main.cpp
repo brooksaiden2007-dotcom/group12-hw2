@@ -31,7 +31,7 @@ int main( int argc, char * argv[] )
 			{
 				arguments[i-1] = stod(argv[i]);
 			}
-			catch(const std::invalid_argument&)
+			catch(const invalid_argument&)
 			{
 				if(i==1)
 					cout << "(Invalid loan amount): " << argv[i] << endl;
@@ -44,7 +44,10 @@ int main( int argc, char * argv[] )
 			}
 			i++;
 		}
+		
 	}
+	
+
 
 	balance = arguments[0];
 	yearlyinterest = arguments[1];
@@ -58,43 +61,30 @@ int main( int argc, char * argv[] )
 	double interestrate = rate/100;
 	double principal = (monthpay - (balance * interestrate));
 
-<<<<<<< HEAD
 
 	if (balance < 0 )
-=======
-	if (balance < 0)
->>>>>>> main
 	{
-		cout << "(Invalid loan amount): " << balance << ' '<< yearlyinterest << ' ' << monthpay << endl;
-		return -2;
+		cout << "(Invalid loan amount): " << balance << endl;
+		return -3;
 	}
 
 	if (yearlyinterest < 0)
 	{
-		cout << "(Invalid interest rate): " << balance << " " << yearlyinterest << ' ' << monthpay << endl;
-		return -2;
+		cout << "(Invalid interest rate): " << balance << " " << yearlyinterest << endl;
+		return -3;
 	}
 
 	if (monthpay < 0)
 	{
 		cout << "(Invalid payment): " << balance << " " << yearlyinterest << " " << monthpay << endl;
-		return -2;
+		return -3;
 	}
 
-<<<<<<< HEAD
-	if (monthpay < principal)
+	if ((balance +  (balance * interestrate))>= balance - principal)
 	{
-		cout << "(Invalid payment): " << balance << " " << yearlyinterest << " " << monthpay << endl;
-		return -2;
+		cout << "(Insufficient payment): " << balance << " " << yearlyinterest << " " << monthpay << endl;
+		return -3;
 	}
-=======
-	//if (monthpay < (balance * interestrate))
-	//{
-	//	cout << "Monthly payment must be greater than monthly interest." << endl;
-	//	return -3;
-	//}
-	
->>>>>>> main
 	
 	//row lengths
 	int col1 = 10;
