@@ -62,7 +62,7 @@ int main( int argc, char * argv[] )
 		return -3;
 	}
 
-	if (yearlyinterest <= 0)
+	if (yearlyinterest < 0)
 	{
 		cout << "Interest rate must be positive." << endl;
 		return -3;
@@ -94,12 +94,12 @@ int main( int argc, char * argv[] )
 	cout.precision(2);
 
 	//Formating columns
-	cout << string(len, '*') << "\n";
+	cout << string(len, '*') << endl;
 
 	cout << left << setw(22) << ' '
 		 <<"Amortization Table" << endl;
 
-	cout << string(len, '*') << "\n";
+	cout << string(len, '*') << endl;
 	//Header
 	cout << left 
 		 << setw(col1) << "Month" 
@@ -150,7 +150,10 @@ int main( int argc, char * argv[] )
 		}
 		//count amount of months
 		totalinterest += interest;
+		if (balance != 0)
+		{
 		month += 1;
+		}
 
 	}
 
