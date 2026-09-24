@@ -1,7 +1,7 @@
 #include <iostream>
 #include <iomanip>
 using namespace std;
-
+//67
 //pass in space-delimited arguments when you call the executable
 //Example: ./a.out 1 2 3.3
 int main( int argc, char * argv[] )
@@ -53,12 +53,17 @@ int main( int argc, char * argv[] )
 	int month = 0;
 	double interest = 0;
 	double totalinterest = 0;
+	double payment = 0;
 	double rate = yearlyinterest/12;
 	double interestrate = rate/100;
 	double principal = (monthpay - (balance * interestrate));
 
+<<<<<<< HEAD
 
 	if (balance < 0 )
+=======
+	if (balance < 0)
+>>>>>>> main
 	{
 		cout << "(Invalid loan amount): " << balance << ' '<< yearlyinterest << ' ' << monthpay << endl;
 		return -2;
@@ -76,11 +81,20 @@ int main( int argc, char * argv[] )
 		return -2;
 	}
 
+<<<<<<< HEAD
 	if (monthpay < principal)
 	{
 		cout << "(Invalid payment): " << balance << " " << yearlyinterest << " " << monthpay << endl;
 		return -2;
 	}
+=======
+	//if (monthpay < (balance * interestrate))
+	//{
+	//	cout << "Monthly payment must be greater than monthly interest." << endl;
+	//	return -3;
+	//}
+	
+>>>>>>> main
 	
 	//row lengths
 	int col1 = 10;
@@ -141,11 +155,12 @@ int main( int argc, char * argv[] )
 		else
 		{
 		principal = balance;
-		balance = principal - principal;
+		payment = balance + interest;
+		balance = 0;
 		cout << left
 		 << setw(col1) << month
 		 << setw(col2) << balance 
-		 << setw(col3) << monthpay 
+		 << setw(col3) << payment
 		 << setw(col4) << rate 
 		 << setw(col5) << interest 
 		 << setw(col6) << principal  << endl;
