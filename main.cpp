@@ -53,6 +53,7 @@ int main( int argc, char * argv[] )
 	double interest = 0;
 	double principal = 0;
 	double totalinterest = 0;
+	double payment = 0;
 	double rate = yearlyinterest/12;
 	double interestrate = rate/100;
 
@@ -62,7 +63,7 @@ int main( int argc, char * argv[] )
 		return -3;
 	}
 
-	if (yearlyinterest < 0)
+	if (yearlyinterest <= 0)
 	{
 		cout << "Interest rate must be positive." << endl;
 		return -3;
@@ -139,11 +140,12 @@ int main( int argc, char * argv[] )
 		else
 		{
 		principal = balance;
-		balance = principal - principal;
+		payment = balance + interest;
+		balance = 0;
 		cout << left
 		 << setw(col1) << month
 		 << setw(col2) << balance 
-		 << setw(col3) << monthpay 
+		 << setw(col3) << payment
 		 << setw(col4) << rate 
 		 << setw(col5) << interest 
 		 << setw(col6) << principal  << endl;
