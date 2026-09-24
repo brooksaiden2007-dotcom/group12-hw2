@@ -63,23 +63,24 @@ int main( int argc, char * argv[] )
 		return -3;
 	}
 
-	if (yearlyinterest = 0)
+	if (yearlyinterest < 0)
 	{
 		cout << "Interest rate must be positive." << endl;
 		return -3;
 	}
 
-	if (monthpay = 0)
+	if (monthpay < 0)
 	{
 		cout << "Monthly payment must be positive." << endl;
 		return -3;
 	}
 
-	if (monthpay < balance * interestrate)
-	{
-		cout << "Monthly payment must be greater than monthly interest." << endl;
-		return -3;
-	}
+	//if (monthpay < (balance * interestrate))
+	//{
+	//	cout << "Monthly payment must be greater than monthly interest." << endl;
+	//	return -3;
+	//}
+	
 	
 	//row lengths
 	int col1 = 10;
