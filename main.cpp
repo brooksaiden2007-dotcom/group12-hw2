@@ -80,7 +80,7 @@ int main( int argc, char * argv[] )
 		return -3;
 	}
 
-	if ((balance +  (balance * interestrate))>= balance - principal)
+	if ((balance +  (balance * interestrate)) - monthpay >= balance)
 	{
 		cout << "(Insufficient payment): " << balance << " " << yearlyinterest << " " << monthpay << endl;
 		return -3;
