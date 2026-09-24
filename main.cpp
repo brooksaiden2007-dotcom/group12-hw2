@@ -65,25 +65,25 @@ int main( int argc, char * argv[] )
 	if (balance < 0 )
 	{
 		cout << "(Invalid loan amount): " << balance << endl;
-		
+		return 0;
 	}
 
 	else if (yearlyinterest < 0)
 	{
 		cout << "(Invalid interest rate): " << balance << " " << yearlyinterest << endl;
-		
+		return 0;
 	}
 
 	else if (monthpay < 0)
 	{
 		cout << "(Invalid payment): " << balance << " " << yearlyinterest << " " << monthpay << endl;
-		
+		return 0;
 	}
 
 	else if ((balance +  (balance * interestrate)) - monthpay >= balance)
 	{
 		cout << "(Insufficient payment): " << balance << " " << yearlyinterest << " " << monthpay << endl;
-		
+		return 0;
 	}
 	else
 	{
