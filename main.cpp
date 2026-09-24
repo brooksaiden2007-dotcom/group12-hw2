@@ -57,25 +57,25 @@ int main( int argc, char * argv[] )
 	double rate = yearlyinterest/12;
 	double interestrate = rate/100;
 
-	if (balance <= 0)
+	if (balance < 0)
 	{
 		cout << "Loan amount must be positive." << endl;
 		return -3;
 	}
 
-	if (yearlyinterest <= 0)
+	if (yearlyinterest = 0)
 	{
 		cout << "Interest rate must be positive." << endl;
 		return -3;
 	}
 
-	if (monthpay <= 0)
+	if (monthpay = 0)
 	{
 		cout << "Monthly payment must be positive." << endl;
 		return -3;
 	}
 
-	if (monthpay <= balance * interestrate)
+	if (monthpay < balance * interestrate)
 	{
 		cout << "Monthly payment must be greater than monthly interest." << endl;
 		return -3;
