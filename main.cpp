@@ -9,12 +9,12 @@ int main( int argc, char * argv[] )
 	if (argc > 4) 
 	{
 		cout << "Too many arguments. Cannot pass in more than three." << endl;
-		return -1;
+		return 0;
 	}
 	if (argc < 4)
 	{
 		cout << "Not enough arguments. Must pass in three." << endl;
-		return -1;
+		return 0;
 	}	
 
 	int i = 1;
