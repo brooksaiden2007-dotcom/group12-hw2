@@ -65,26 +65,28 @@ int main( int argc, char * argv[] )
 	if (balance < 0 )
 	{
 		cout << "(Invalid loan amount): " << balance << endl;
-		return -3;
+		
 	}
 
-	if (yearlyinterest < 0)
+	else if (yearlyinterest < 0)
 	{
 		cout << "(Invalid interest rate): " << balance << " " << yearlyinterest << endl;
-		return -3;
+		
 	}
 
-	if (monthpay < 0)
+	else if (monthpay < 0)
 	{
 		cout << "(Invalid payment): " << balance << " " << yearlyinterest << " " << monthpay << endl;
-		return -3;
+		
 	}
 
-	if ((balance +  (balance * interestrate)) - monthpay >= balance)
+	else if ((balance +  (balance * interestrate)) - monthpay >= balance)
 	{
 		cout << "(Insufficient payment): " << balance << " " << yearlyinterest << " " << monthpay << endl;
-		return -3;
+		
 	}
+	else
+	{
 	
 	//row lengths
 	int col1 = 10;
@@ -169,4 +171,5 @@ int main( int argc, char * argv[] )
 	cout << "Total interest paid is: $" << totalinterest << endl;
 		 
 	return 0;
+}
 }
